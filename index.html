@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Imaan Gill | Computer Engineering Portfolio</title>
+<meta name="description" content="Imaan Gill, Computer Engineering student at Toronto Metropolitan University. FPGA, embedded systems, analog circuits and software projects.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700&family=Hanken+Grotesk:wght@400;500;600&display=swap" rel="stylesheet">
+<script>document.documentElement.classList.add("js")</script>
+<style>
+:root{
+  --bg:#F6F7F9;--surface:#FFFFFF;--ink:#0F1B33;--muted:#53607A;--line:#D5DAE3;--accent:#0B6E6E;--tag:#E8EEF5;
+  --glow:rgba(11,110,110,.10);--bar:rgba(238,243,251,.78);--bg-grad:radial-gradient(70rem 45rem at 10% -8%,rgba(59,110,200,.20),transparent 62%),radial-gradient(55rem 40rem at 100% 12%,rgba(11,110,110,.10),transparent 60%),linear-gradient(180deg,#E9F0FB 0%,#F2F5FA 45%,#F6F7F9 100%);--shadow:0 10px 30px rgba(15,27,51,.08);
+  color-scheme:light;box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){--bg-grad:radial-gradient(70rem 45rem at 12% -8%,rgba(52,98,210,.34),transparent 62%),radial-gradient(55rem 40rem at 100% 18%,rgba(40,120,170,.16),transparent 60%),linear-gradient(180deg,#0E1A3A 0%,#0A1226 45%,#080D1A 100%);--bg:#0C111B;--surface:#131A28;--ink:#E6EAF2;--muted:#9AA5BD;--line:#243047;--accent:#5CD1C4;--tag:#1A2437;--glow:rgba(92,209,196,.09);--bar:rgba(12,17,27,.78);--shadow:0 10px 30px rgba(0,0,0,.35);color-scheme:dark}
+}
+:root[data-theme="dark"]{--bg-grad:radial-gradient(70rem 45rem at 12% -8%,rgba(52,98,210,.34),transparent 62%),radial-gradient(55rem 40rem at 100% 18%,rgba(40,120,170,.16),transparent 60%),linear-gradient(180deg,#0E1A3A 0%,#0A1226 45%,#080D1A 100%);--bg:#0C111B;--surface:#131A28;--ink:#E6EAF2;--muted:#9AA5BD;--line:#243047;--accent:#5CD1C4;--tag:#1A2437;--glow:rgba(92,209,196,.09);--bar:rgba(12,17,27,.78);--shadow:0 10px 30px rgba(0,0,0,.35);color-scheme:dark}
+html{scroll-padding-top:calc(env(safe-area-inset-top,0px) + 4.5rem);scroll-behavior:smooth}
+*,*::before,*::after{box-sizing:border-box}
+body{margin:0;min-height:100vh;background-color:var(--bg);background-image:var(--bg-grad);background-attachment:fixed;background-repeat:no-repeat;color:var(--ink);font-family:"Hanken Grotesk",system-ui,-apple-system,"Segoe UI",sans-serif;font-size:1.125rem;line-height:1.7;-webkit-font-smoothing:antialiased}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);background:var(--bar);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);z-index:10}
+a{color:inherit}
+a:focus-visible,button:focus-visible{outline:3px solid var(--accent);outline-offset:3px;border-radius:4px}
+.wrap{max-width:68rem;margin:0 auto;padding:0 1.5rem}
+h1,h2,h3{font-family:"Bricolage Grotesque","Hanken Grotesk",system-ui,sans-serif;line-height:1.1;margin:0}
+
+/* sticky header */
+header.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:9;background:var(--bar);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid transparent;transition:border-color .3s}
+header.top.scrolled{border-color:var(--line)}
+header.top .wrap{display:flex;justify-content:space-between;align-items:center;gap:1rem;padding-top:1rem;padding-bottom:1rem}
+.mark{font-family:"Bricolage Grotesque",sans-serif;font-weight:700;text-decoration:none;letter-spacing:-.01em}
+nav{display:flex;gap:1.5rem}
+nav a{text-decoration:none;color:var(--muted);font-weight:500;font-size:1rem;transition:color .2s}
+nav a:hover{color:var(--ink)}
+nav a.pill{border:1px solid var(--line);border-radius:999px;padding:.35rem .95rem;background:var(--surface);color:var(--ink)}
+nav a.pill:hover{border-color:var(--accent)}
+
+/* hero */
+.hero{position:relative;padding:7rem 0 3rem}
+.hero::before{content:"";position:absolute;left:50%;top:-8rem;width:min(60rem,140%);height:30rem;transform:translateX(-50%);background:radial-gradient(closest-side,var(--glow),transparent);pointer-events:none;z-index:-1}
+.hero h1{font-size:clamp(3.4rem,11vw,7.5rem);font-weight:700;letter-spacing:-.035em}
+.hero p.lead{font-size:clamp(1.25rem,2.6vw,1.6rem);max-width:42rem;color:var(--muted);margin:1.5rem 0 2.25rem}
+.hero p.lead strong{color:var(--ink);font-weight:600}
+.cta{display:flex;gap:.75rem;flex-wrap:wrap}
+.btn{display:inline-block;padding:.75rem 1.35rem;border:1px solid var(--line);border-radius:999px;text-decoration:none;font-weight:600;font-size:.97rem;background:var(--surface);transition:transform .25s,border-color .25s,background .25s,color .25s}
+.btn:hover{border-color:var(--accent);transform:translateY(-2px)}
+.btn.primary{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.btn.primary:hover{background:var(--accent);border-color:var(--accent)}
+
+/* fade-in: one load sequence in the hero, scroll reveal elsewhere */
+.js .fade{opacity:0;transform:translateY(18px);transition:opacity .8s cubic-bezier(.2,.7,.2,1),transform .8s cubic-bezier(.2,.7,.2,1);transition-delay:var(--d,0s)}
+.js .fade.in{opacity:1;transform:none}
+
+/* sections */
+section{padding:6rem 0 1rem}
+.sec-head{display:flex;align-items:center;gap:1rem;margin-bottom:2rem}
+.sec-head h2{font-size:2.5rem;letter-spacing:-.025em}
+.sec-head::after{content:"";flex:1;height:1px;background:var(--line)}
+.about{max-width:42rem}
+.about p{margin:0 0 1rem;color:var(--muted)}
+
+.cards{display:grid;grid-template-columns:repeat(2,1fr);gap:1.25rem}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:2rem;display:flex;flex-direction:column;transition:transform .35s,border-color .35s,box-shadow .35s}
+.card:hover{transform:translateY(-3px);border-color:var(--accent);box-shadow:var(--shadow)}
+.card .when{color:var(--muted);font-size:.88rem;margin-bottom:.6rem}
+.card h3{font-size:1.5rem;letter-spacing:-.01em;margin-bottom:.7rem}
+.card p{margin:0 0 1.4rem;color:var(--muted);font-size:1.05rem}
+.tags{display:flex;flex-wrap:wrap;gap:.4rem;margin:auto 0 0;padding:0;list-style:none}
+.tags li{background:var(--tag);padding:.25rem .8rem;border-radius:99px;font-size:.88rem;font-weight:500}
+
+.panel{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:2.1rem}
+.panel+.panel{margin-top:1.25rem}
+.panel .top{display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap;align-items:baseline}
+.panel h3{font-size:1.5rem;letter-spacing:-.01em}
+.panel .when{color:var(--muted);font-size:.92rem}
+.panel .sub{color:var(--muted);margin:.25rem 0 .75rem}
+.panel p{margin:.5rem 0 0;color:var(--muted);max-width:44rem}
+.panel ul{margin:.5rem 0 0;padding-left:1.1rem;color:var(--muted);max-width:44rem}
+.panel li{margin:.4rem 0}
+
+.facts{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin-top:3.5rem}
+.fact{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:1.3rem 1.5rem}
+.fact b{display:block;font-family:"Bricolage Grotesque",system-ui,sans-serif;font-size:1.2rem;font-weight:700;margin-bottom:.25rem}
+.fact span{color:var(--muted);font-size:1rem;line-height:1.6}
+.langs{display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem}
+.lang{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:1.6rem;transition:border-color .35s,box-shadow .35s}
+.lang:hover{border-color:var(--accent);box-shadow:var(--shadow)}
+.lang h3{font-size:1.3rem;letter-spacing:-.01em;margin-bottom:.5rem}
+.lang p{margin:0;color:var(--muted);font-size:1.02rem}
+.sub-h{font-size:1.2rem;margin:2.75rem 0 1rem}
+.skills{display:grid;grid-template-columns:repeat(2,1fr);gap:1.25rem;margin-top:3rem}
+.skills .panel{margin:0}
+.skills .panel:last-child{grid-column:1/-1}
+.skills h3{font-size:1.25rem;margin-bottom:.6rem}
+.skills p{margin:0;font-size:1.03rem}
+
+footer{margin-top:5rem;padding:4rem 0 4rem;border-top:1px solid var(--line);text-align:left}
+footer h2{font-size:2.5rem;letter-spacing:-.02em;margin-bottom:1rem}
+footer p{margin:0 0 1.75rem;max-width:34rem;color:var(--muted)}
+footer .small{font-size:.9rem;margin:2.5rem 0 0}
+
+@media (max-width:720px){
+  .cards,.skills,.facts,.langs{grid-template-columns:1fr}
+  nav{gap:.6rem}
+  nav a:not(.pill){display:none}
+  nav a{font-size:.9rem}
+  .hero{padding-top:3.5rem}
+  header.top .mark{display:none}
+}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .js .fade{opacity:1;transform:none;transition:none}
+  .btn:hover,.card:hover{transform:none}
+}
+</style>
+</head>
+<body>
+<header class="top" id="bar">
+  <div class="wrap">
+    <a class="mark" href="#top">Imaan Gill</a>
+    <nav aria-label="Sections">
+      <a href="#projects">Projects</a>
+      <a href="#experience">Experience</a>
+      <a href="#skills">Skills</a>
+      <a href="#contact">Contact</a>
+      <a class="pill" href="Imaan_Gill_Resume.pdf" target="_blank" rel="noopener">Resume</a>
+      <a class="pill" href="https://www.linkedin.com/in/imaan-gill-726b8b241/" target="_blank" rel="noopener">LinkedIn</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap" id="top">
+  <div class="hero">
+    <h1 class="fade" style="--d:.05s">Imaan Gill</h1>
+    <p class="lead fade" style="--d:.2s"><strong>Computer Engineering student</strong> at Toronto Metropolitan University. I build processors, robots and circuits, and I teach kids how to build them too.</p>
+    <div class="cta fade" style="--d:.35s">
+      <a class="btn primary" href="#projects">View projects</a>
+      <a class="btn" href="Imaan_Gill_Resume.pdf" target="_blank" rel="noopener">Resume</a>
+      <a class="btn" href="https://www.linkedin.com/in/imaan-gill-726b8b241/" target="_blank" rel="noopener">LinkedIn</a>
+    </div>
+    <div class="facts">
+      <div class="fact fade" style="--d:.5s"><b>Computer Engineering</b><span>Studying Computer Engineering at Toronto Metropolitan University, graduating April 2029, with coursework in digital systems, software systems, algorithms and electronic circuits.</span></div>
+      <div class="fact fade" style="--d:.6s"><b>FPGA, embedded and analog</b><span>Hands-on projects across the stack: VHDL on an FPGA, HCS12 assembly on a roaming robot, and a transistor-level amplifier designed in KiCad and SPICE, then built on a breadboard.</span></div>
+      <div class="fact fade" style="--d:.7s"><b>STEAM instructor</b><span>Lead groups of 10 to 20 students aged 8 to 14 through 15+ STEM programs, from Arduino and VEX robotics to Python and Blender, building and debugging projects alongside them.</span></div>
+    </div>
+  </div>
+
+  <section id="about" aria-labelledby="about-h">
+    <div class="sec-head fade"><h2 id="about-h">About</h2></div>
+    <div class="about fade">
+      <p>I’m studying Computer Engineering at Toronto Metropolitan University (expected April 2029). My work sits between hardware and software: VHDL and FPGAs, HCS12 assembly on a roaming robot, transistor-level amplifier design, and Java applications.</p>
+      <p>Since June 2024 I’ve worked as a STEAM instructor with the City of Brampton, teaching Arduino, VEX robotics and Python to students aged 8 to 14. Explaining a concept to a ten-year-old is good practice for explaining it to anyone.</p>
+    </div>
+  </section>
+
+  <section id="projects" aria-labelledby="projects-h">
+    <div class="sec-head fade"><h2 id="projects-h">Engineering projects</h2></div>
+    <div class="cards">
+      <article class="card fade">
+        <div class="when">Dec 2025</div>
+        <h3>8-Bit FPGA General-Purpose Processor</h3>
+        <p>Designed and verified an 8-bit processor test board with registers, FSM control, decoders, ALUs and a seven-segment display. Implemented arithmetic, logic, shift and rotate, and comparison operations in VHDL, verified with waveform simulation and hardware testing in Quartus.</p>
+        <ul class="tags"><li>VHDL</li><li>Quartus Prime</li><li>FPGA</li><li>FSMs</li><li>Digital logic</li></ul>
+      </article>
+      <article class="card fade" style="--d:.1s">
+        <div class="when">Dec 2026</div>
+        <h3>EEbot Roaming Controller</h3>
+        <p>Programmed a six-state HCS12 controller for a free-roaming robot. Bumper and stern inputs plus timer interrupts drive forward motion, reversing, turning and stopping. Integrated DC motor control, ADC battery monitoring, and an LCD showing voltage and state.</p>
+        <ul class="tags"><li>HCS12 Assembly</li><li>CodeWarrior</li><li>Timer interrupts</li><li>ADC</li><li>LCD</li></ul>
+      </article>
+      <article class="card fade">
+        <div class="when">Aug 2026</div>
+        <h3>Book Store Management Application</h3>
+        <p>Built a JavaFX bookstore with owner and customer login, inventory management, purchasing, loyalty point redemption and persistent file storage. Used a User class hierarchy and the State pattern for customer status.</p>
+        <ul class="tags"><li>Java</li><li>JavaFX</li><li>NetBeans</li><li>Ant</li><li>OOP</li><li>State pattern</li><li>File I/O</li></ul>
+      </article>
+      <article class="card fade" style="--d:.1s">
+        <div class="when">2026</div>
+        <h3>Transistor-Level Circuit Design &amp; Simulation</h3>
+        <p>Designed and simulated a three-stage 3.3 V low-voltage amplifier in KiCad using NMOS, PMOS and CMOS models, resistor bias networks and capacitor coupling. Sized and biased the transistors with SPICE operating-point analysis, then built the circuit on a breadboard.</p>
+        <ul class="tags"><li>KiCad</li><li>SPICE</li><li>NMOS/PMOS</li><li>Analog electronics</li></ul>
+      </article>
+    </div>
+  </section>
+
+  <section id="experience" aria-labelledby="exp-h">
+    <div class="sec-head fade"><h2 id="exp-h">Experience</h2></div>
+    <article class="panel fade">
+      <div class="top"><h3>STEAM Instructor / Facility Staff</h3><span class="when">Jun 2024 to present</span></div>
+      <p class="sub">City of Brampton, Collaborative Learning &amp; Technology Centre (CLTC)</p>
+      <ul>
+        <li>Teach groups of 10 to 20 students aged 8 to 14 across 15+ STEM programs, including Arduino and VEX robotics, Python, C++, HTML, CSS and Blender.</li>
+        <li>Write lesson plans, then build, test and debug hardware and software alongside students, including VEX vehicles and programming projects.</li>
+        <li>Lead classroom problem solving and teamwork, and enforce safe use of electronics and robotics equipment.</li>
+      </ul>
+    </article>
+  </section>
+
+  <section id="skills" aria-labelledby="skills-h">
+    <div class="sec-head fade"><h2 id="skills-h">Skills</h2></div>
+    <div class="langs">
+      <div class="lang fade"><h3>Assembly</h3><p>HCS12 assembly in CodeWarrior. Wrote the six-state EEbot controller with timer interrupts, ADC input and LCD output.</p></div>
+      <div class="lang fade" style="--d:.08s"><h3>Java</h3><p>Built a JavaFX bookstore app with a User hierarchy, the State pattern and file I/O. Tooling includes JUnit, UML, Ant, Maven and Gradle.</p></div>
+      <div class="lang fade" style="--d:.16s"><h3>Python</h3><p>Teach Python and object-oriented Python to students aged 8 to 14 at the CLTC.</p></div>
+      <div class="lang fade"><h3>C and C++</h3><p>Core languages for engineering coursework and microcontroller work. I also teach C++ in the STEM programs.</p></div>
+      <div class="lang fade" style="--d:.08s"><h3>JavaScript, HTML &amp; CSS</h3><p>Front-end web basics for building pages like this one. HTML and CSS are also part of the programs I teach.</p></div>
+      <div class="lang fade" style="--d:.16s"><h3>VHDL &amp; Verilog</h3><p>Hardware description for FPGA designs. Built an 8-bit processor with an ALU, registers and FSM control in VHDL.</p></div>
+    </div>
+    <h3 class="sub-h fade">Concepts</h3>
+    <ul class="tags fade"><li>Object-oriented programming</li><li>Design patterns</li><li>Finite state machines</li><li>Data structures &amp; algorithms</li><li>Interrupts &amp; timers</li><li>File I/O</li><li>Unit testing</li><li>UML modelling</li><li>Waveform simulation</li></ul>
+    <div class="skills">
+      <div class="panel fade" style="--d:.1s"><h3>Embedded &amp; hardware</h3><p>Arduino, ESP32, FPGA/CPLD, HCS12, digital logic, microcontrollers, breadboarding, soldering, 3D printing</p></div>
+      <div class="panel fade"><h3>Electronics &amp; lab</h3><p>KiCad, NI Multisim, oscilloscopes, function generators, DMMs, MOSFET/BJT circuits, circuit prototyping</p></div>
+      <div class="panel fade" style="--d:.1s"><h3>Software &amp; tools</h3><p>Quartus Prime, ModelSim, MATLAB, NetBeans, JavaFX, VS Code, JUnit, UML, Ant, Maven, Gradle, Assembly</p></div>
+    </div>
+  </section>
+
+  <section id="education" aria-labelledby="edu-h">
+    <div class="sec-head fade"><h2 id="edu-h">Education &amp; recognition</h2></div>
+    <article class="panel fade">
+      <div class="top"><h3>Bachelor of Engineering, Computer Engineering</h3><span class="when">Expected Apr 2029</span></div>
+      <p class="sub">Toronto Metropolitan University, Toronto, ON</p>
+      <p>Coursework: Digital Systems, Software Systems, Engineering Algorithms &amp; Data Structures, Object Oriented Engineering Analysis &amp; Design, Electric Networks, Electronic Circuits I.</p>
+    </article>
+    <article class="panel fade">
+      <div class="top"><h3>DECA Ontario, Marketing Competitor</h3></div>
+      <p>Advanced from regional competition to provincials, with Top 10 and Top 5 placements in marketing case study categories.</p>
+    </article>
+    <article class="panel fade">
+      <div class="top"><h3>Certifications &amp; languages</h3></div>
+      <p>WHMIS Certificate, Emergency First Aid with CPR-B. English (fluent), Punjabi (conversational).</p>
+    </article>
+  </section>
+</main>
+
+<footer id="contact">
+  <div class="wrap">
+    <h2 class="fade">Contact</h2>
+    <p class="fade">I’m looking for engineering co-op and internship opportunities. Email is the quickest way to reach me.</p>
+    <div class="cta fade">
+      <a class="btn primary" href="mailto:imaangill842@gmail.com">Email Imaan</a>
+      <a class="btn" href="https://www.linkedin.com/in/imaan-gill-726b8b241/" target="_blank" rel="noopener">LinkedIn profile</a>
+      <a class="btn" href="Imaan_Gill_Resume.pdf" target="_blank" rel="noopener">View resume</a>
+    </div>
+    <p class="small fade">Brampton, Ontario</p>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var bar=document.getElementById("bar");
+  function onScroll(){bar.classList.toggle("scrolled",window.scrollY>8)}
+  window.addEventListener("scroll",onScroll,{passive:true});onScroll();
+
+  var els=document.querySelectorAll(".fade");
+  if(!("IntersectionObserver" in window)){els.forEach(function(e){e.classList.add("in")});return;}
+  var io=new IntersectionObserver(function(es){
+    es.forEach(function(e){if(e.isIntersecting){e.target.classList.add("in");io.unobserve(e.target)}});
+  },{threshold:.12,rootMargin:"0px 0px -6% 0px"});
+  els.forEach(function(e){io.observe(e)});
+})();
+</script>
+</body>
+</html>
